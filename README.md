@@ -2,8 +2,6 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-Useful guide: https://docusaurus.io/docs/markdown-features
-
 ### Installation
 
 ```
@@ -26,12 +24,18 @@ $ npm run build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Add new localization
+### Deployment
 
-1. Add new locale to `docusaurus.config.js`
-2. Generate localization with `npm run write-translations -- --locale $new-locale`
-3. Remove obsolete files (e.g. `_category_.json`)
-4. `npm run start -- --locale $new-locale`
-5. You're ready to translate the wiki
+Using SSH:
 
-More: https://docusaurus.io/docs/i18n/tutorial
+```
+$ USE_SSH=true npm run deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> npm run deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

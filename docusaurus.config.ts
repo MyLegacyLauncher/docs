@@ -6,21 +6,16 @@ const config: Config = {
   title: 'Legacy Launcher Wiki',
   tagline: 'Документация Legacy Launcher',
   favicon: 'img/favicon.ico',
-  url: process.env.DOCUSAURUS_URL ?? 'https://docs.llaun.ch',
+  url: 'https://docs.llaun.ch',
   baseUrl: '/',
   organizationName: 'LegacyLauncher',
   projectName: 'docs',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
-  trailingSlash: false,
+  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'ru',
-    locales: ['en', 'ru'],
-  },
-
-  customFields: {
-    redirHost: process.env.DOCUSAURUS_REDIR ?? 'llaun.ch',
+    locales: ['ru'],
   },
 
   presets: [
@@ -29,13 +24,7 @@ const config: Config = {
       {
         docs: {
           routeBasePath: '/',
-          editUrl: (params: { locale: string; docPath: string; }) => {
-            const root = `https://github.com/LegacyLauncher/docs/edit/main`;
-            const { locale, docPath } = params;
-            return locale === 'ru' ?
-              `${root}/docs/${docPath}`
-              : `${root}/i18n/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
-          },
+          editUrl: 'https://github.com/LegacyLauncher/docs/edit/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -75,7 +64,7 @@ const config: Config = {
           items: [
             {
               label: 'Наш сайт',
-              href: `https://${process.env.DOCUSAURUS_REDIR ?? 'llaun.ch'}`,
+              href: 'https://llaun.ch',
             },
             {
               label: 'Исходные коды Вики',
@@ -88,11 +77,11 @@ const config: Config = {
           items: [
             {
               label: 'Группа ВК',
-              href: `https://${process.env.DOCUSAURUS_REDIR ?? 'llaun.ch'}/vk`,
+              href: 'https://llaun.ch/vk',
             },
             {
               label: 'Наш Discord',
-              href: `https://${process.env.DOCUSAURUS_REDIR ?? 'llaun.ch'}/discord`,
+              href: 'https://llaun.ch/discord',
             },
           ],
         },
@@ -117,30 +106,9 @@ const config: Config = {
         'properties',
         'json',
         'ini',
-        'batch',
       ],
     },
-    zoom: {
-      selector: '.markdown :not(em) > img',
-      config: {
-        container: {
-          top: 72,
-          left: 0,
-          right: 0,
-          bottom: 16,
-        },
-      }
-    },
   } satisfies Preset.ThemeConfig,
-  plugins: [
-    [
-      'docusaurus-plugin-yandex-metrica',
-      {
-        counterID: '96541553',
-      }
-    ],
-    'docusaurus-plugin-image-zoom',
-  ],
 };
 
 export default config;
