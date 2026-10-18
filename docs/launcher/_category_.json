@@ -1,0 +1,9 @@
+{
+  "label": "Документация по лаунчеру",
+  "position": 6,
+  "link": {
+    "type": "generated-index",
+    "slug": "launcher",
+    "description": "Подробное описание возможностей и настроек лаунчера"
+  }
+}
